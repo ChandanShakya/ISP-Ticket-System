@@ -7,9 +7,9 @@ services:
       context: .
     restart: always
     volumes:
-      - "./src/:/var/www/html/"
+      - "./htdocs/:/var/www/html/"
     ports:
-      - "8080:80"
+      - "80:80"
   
   mysql-server:
     image: mysql:8.0.28
