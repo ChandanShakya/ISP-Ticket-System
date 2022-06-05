@@ -168,7 +168,7 @@
 }
 .create form input, .create form textarea, .view form input, .view form textarea {
     padding: 10px;
-    width: 100%;
+    width: 80%;
     margin-right: 25px;
     margin-bottom: 15px;
     border: 1px solid #cccccc;
@@ -186,6 +186,7 @@
     cursor: pointer;
     width: 200px;
     margin-top: 15px;
+    margin-right: 5.5em;
     border-radius: 5px;
 }
 .create form input[type="submit"]:hover, .view form input[type="submit"]:hover {

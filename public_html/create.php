@@ -2,6 +2,10 @@
 session_start();
 include './connection/local_connect.php';
 $pdo = pdo_connect_mysql();
+// if session is not set redirect to login.php
+if (!isset($_SESSION['logged_in'])) {
+    header("Location:login.php");
+}
 $msg = '';
 // Check if POST data exists (user submitted the form)
 if (isset($_POST['title'], $_POST['phone'], $_POST['msg'])) {
@@ -20,21 +24,31 @@ if (isset($_POST['title'], $_POST['phone'], $_POST['msg'])) {
 <?php
 include_once "common/header.php";
 ?>
-<div class="content create">
+<section class="d-xxl-flex flex-grow-0 py-4 py-xl-3">
+	<div class="container">
+		<div class="text-white bg-dark border rounded border-0 p-4 p-md-5" style="filter: blur(0px);">
+<center>
+<div class="create">
     <h2>Create Ticket</h2>
     <form action="create.php" method="post">
         <label for="title">Title</label>
-        <input type="text" name="title" placeholder="Title" id="title" required>
+        <input type="text" class="form-control" name="title" placeholder="Title" id="title" required>
         <label for="phone">Phone Number</label>
-        <input type="tel" name="phone" placeholder="98xxxxxxxx" id="phone" required pattern="[0-9]{10}">
+        <input type="tel" class="form-control" name="phone" placeholder="98xxxxxxxx" id="phone" required pattern="[0-9]{10}">
         <label for="msg">Message</label>
-        <textarea name="msg" placeholder="Enter your message here..." id="msg" required></textarea>
-        <input type="submit" value="Create">
+        <textarea name="msg" class="form-control" placeholder="Enter your message here..." id="msg" required></textarea>
+        <center><input type="submit" value="Create" style="background-color:#0d6efd">
+        </center>
+        
     </form>
     <?php if ($msg) : ?>
         <p><?= $msg ?></p>
     <?php endif; ?>
 </div>
+</center>
+        </div>
+    </div>
+</section>
 <?php
 include_once "common/footer.php";
 ?>

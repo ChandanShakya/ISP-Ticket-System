@@ -19,12 +19,12 @@ include_once "common/header.php";
 <!-- List all the Tickets using php and pdo-->
 <section class="d-xxl-flex flex-grow-0 py-4 py-xl-5">
     <div class="container">
-        <div class="text-white bg-dark border rounded border-0 p-4 p-md-5" style="filter: blur(0px);">
+        <div class="text-white bg-dark border rounded border-0 p-4 p-md-5 shadow-lg" style="filter: blur(0px);">
             <h2 class="fw-bold text-center text-white mb-3">History Panel </h2>
             <div class="home">
                 <div class="tickets-list">
                     <?php foreach ($tickets as $ticket) : ?>
-                        <div class="row">
+                        <div class="row shadow-lg">
                             <a href="view.php?id=<?= $ticket['id'] ?>" class="ticket">
                                 <div class="con col-md-1">
                                     <?php if ($ticket['status'] == 'open') : ?>
@@ -55,7 +55,7 @@ include_once "common/header.php";
                 </div>
             </div>
             <!-- Logout button  that is centered-->
-            <div class="text-center">
+            <div class="text-center" style="margin-top: 1em;">
                 <a href="logout.php" class="btn btn-primary">Logout</a>
             </div>
         </div>

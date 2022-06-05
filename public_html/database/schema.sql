@@ -7,6 +7,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=UTF8MB4;
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (1, 'admin', 'admin@admin.com','admin');
+INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (2, 'chandan', 'chandan@user.com','chandan');
+INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (3, 'sanisha', 'sanisha@sanisha.com','sanisha');
+INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (4, 'kabir', 'kabir@user.com','kabir');
 
 CREATE TABLE IF NOT EXISTS `tickets` (
 	`id` int NOT NULL AUTO_INCREMENT,
