@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS `tickets_comments` (
 	`ticket_id` int(11) NOT NULL,
 	`msg` text NOT NULL,
 	`created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`id`)
+	PRIMARY KEY (`id`),
+	foreign key (ticket_id) references tickets(id) on delete cascade
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `tickets_comments` (`id`, `ticket_id`, `msg`, `created`) VALUES (1, 1, 'This is a test comment.', '2020-06-10 16:23:39');
