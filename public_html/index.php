@@ -2,6 +2,7 @@
 session_start();
 include './connection/local_connect.php';
 $pdo = pdo_connect_mysql();
+include './common/datetime.php';
 if (isset($_SESSION['logged_in'])) {
     echo '<script>document.getElementsById("button_change").innerHTML = "History";</script>';
 
@@ -36,8 +37,10 @@ include_once "common/header.php";
 									<span class="title"><?= htmlspecialchars($ticket['title'], ENT_QUOTES) ?></span>
 									<span class="msg"><?= htmlspecialchars($ticket['msg'], ENT_QUOTES) ?></span>
 								</div>
-				
-								<div class="con created col-md-4"><?= date('F dS, G:ia', strtotime($ticket['created'])) ?></div>
+								<?php
+								
+								?>
+								<div class="con created col-md-4"><?= date('F dS, G:ia', strtotime(dateToTimezone('Asia/Kathmandu', $ticket['created']))) ?></div>
 							</a>
 						</div>
 					<?php endforeach; ?>

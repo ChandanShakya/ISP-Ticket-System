@@ -2,6 +2,8 @@
 session_start();
 include './connection/local_connect.php';
 $pdo = pdo_connect_mysql();
+include './common/datetime.php';
+
 // MySQL query that retrieves  all the tickets from the databse
 if($_SESSION['user_id'] == '1'){
 $stmt = $pdo->prepare('SELECT * FROM tickets ORDER BY created DESC');
@@ -39,7 +41,7 @@ include_once "common/header.php";
                                     <span class="title"><?= htmlspecialchars($ticket['title'], ENT_QUOTES) ?></span>
                                     <span class="msg"><?= htmlspecialchars($ticket['msg'], ENT_QUOTES) ?></span>
                                 </div>
-                                <div class="con created col-md-3"><?= date('F dS, G:ia', strtotime($ticket['created'])) ?></div>
+                                <div class="con created col-md-3"><?= date('F dS, G:ia', strtotime(dateToTimezone('Asia/Kathmandu', $ticket['created']))) ?></div>
                                 <!-- Button to delete the current ticket -->
                                 <div class="con col-md-1">
 

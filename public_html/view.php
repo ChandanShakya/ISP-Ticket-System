@@ -2,6 +2,7 @@
 session_start();
 include './connection/local_connect.php';
 $pdo = pdo_connect_mysql();
+include './common/datetime.php';
 
 
 // Check if the ID param in the URL exists
@@ -57,7 +58,7 @@ include_once 'common/header.php';
                     echo '<p>Created by: ' . $user['username'] . '</p>';
                     ?>
 
-                    <p class="created"><?= date('F dS, G:ia', strtotime($ticket['created'])) ?></p>
+                    <p class="created"><?= date('F dS, G:ia', strtotime(dateToTimezone('Asia/Kathmandu', $ticket['created']))) ?></p>
                     <p class="msg"><?= nl2br(htmlspecialchars($ticket['msg'], ENT_QUOTES)) ?></p>
                 </div>
                 <?php
@@ -104,7 +105,7 @@ include_once 'common/header.php';
                                 $user = $stmt->fetch(PDO::FETCH_ASSOC);
                                 ?>
                                 <?= htmlspecialchars($user['username'], ENT_QUOTES) ?>
-                                <span><?= date('F dS, G:ia', strtotime($comment['created'])) ?></span>
+                                <span><?= date('F dS, G:ia', strtotime(dateToTimezone('Asia/Kathmandu', $comment['created']))) ?></span>
                                 <?= nl2br(htmlspecialchars($comment['msg'], ENT_QUOTES)) ?>
                             </p>
                         </div>
