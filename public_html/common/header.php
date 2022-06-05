@@ -5,7 +5,7 @@
 <title>$title</title>
     
 		<link href="../css/000webhost_watermark_clear.css" rel="stylesheet" type="text/css">
-		<link href="../style.css" rel="stylesheet" type="text/css">
+		<link href="../css/style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body>
